@@ -33,24 +33,24 @@ export class SwapiService {
     );
   }
 
-  searchCharacter(name: string): Observable<Character[]> {
+  searchCharacter(name: string): Observable<Character[] | undefined> {
     const params = new HttpParams().appendAll({search: name})
     return this.http.get<SwapiResponse<Character>>(`${environment.SW_API_URL}/people/`, {params}).pipe(
-      map(response => response.results)
+      map(response => response.results.length > 0 ? response.results : undefined)
     );
   }
 
-  searchFilm(name: string): Observable<Film[]> {
+  searchFilm(name: string): Observable<Film[] | undefined> {
     const params = new HttpParams().appendAll({search: name})
     return this.http.get<SwapiResponse<Film>>(`${environment.SW_API_URL}/films/`, {params}).pipe(
-      map(response => response.results)
+      map(response => response.results.length > 0 ? response.results : undefined)
     );
   }
 
-  searchPlanet(name: string): Observable<Planet[]> {
+  searchPlanet(name: string): Observable<Planet[] | undefined> {
     const params = new HttpParams().appendAll({search: name})
     return this.http.get<SwapiResponse<Planet>>(`${environment.SW_API_URL}/planets/`, {params}).pipe(
-      map(response => response.results)
+      map(response => response.results.length > 0 ? response.results : undefined)
     );
   }
 }

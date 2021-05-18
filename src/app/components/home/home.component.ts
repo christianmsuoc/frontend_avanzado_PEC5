@@ -15,9 +15,9 @@ import {Planet} from "../../shared/models/planet";
 export class HomeComponent implements OnInit {
 
   search = new FormControl('');
-  characters$: Observable<Character[] | []> = of([]);
-  films$: Observable<Film[] | []> = of([]);
-  planets$: Observable<Planet[] | []> = of([]);
+  characters$: Observable<Character[] | undefined> = of(undefined);
+  films$: Observable<Film[] | undefined> = of(undefined);
+  planets$: Observable<Planet[] | undefined> = of(undefined);
 
   constructor(private swapiService: SwapiService) { }
 

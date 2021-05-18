@@ -1,4 +1,4 @@
-<div class="container-fluid main py-5">
+<div class="container-fluid main py-5 justify-content-center">
   <div class="row py-5">
     <div class="col">
       <label for="search-anything" class="form-label">Search anything</label>
@@ -6,18 +6,19 @@
     </div>
   </div>
 
-  <div class="py-3" *ngIf="(characters$ | async) !== []">
+
+  <div class="py-3" *ngIf="(characters$ | async) as characters">
     <h1>Characters</h1>
-    <p *ngFor="let character of (characters$ | async)">{{character.name}}</p>
+    <p *ngFor="let character of characters">{{character.name}}</p>
   </div>
 
-  <div class="py-3" *ngIf="(films$ | async) !== []">
+  <div class="py-3" *ngIf="(films$ | async) as films">
     <h1>Films</h1>
-    <p *ngFor="let film of (films$ | async)">{{film.title}}</p>
+    <p *ngFor="let film of films">{{film.title}}</p>
   </div>
 
-  <div class="py-3" *ngIf="(planets$ | async) !== []">
+  <div class="py-3" *ngIf="(planets$ | async) as planets">
     <h1>Planets</h1>
-    <p *ngFor="let planet of (planets$ | async)">{{planet.name}}</p>
+    <p *ngFor="let planet of planets">{{planet.name}}</p>
   </div>
 </div>
