@@ -1,0 +1,23 @@
+<div class="container-fluid main py-5">
+  <div class="row py-5">
+    <div class="col">
+      <label for="search-anything" class="form-label">Search anything</label>
+      <input type="text" [formControl]="search" class="form-control" id="search-anything" placeholder="Luke Skywalker...">
+    </div>
+  </div>
+
+  <div class="py-3" *ngIf="(characters$ | async) !== []">
+    <h1>Characters</h1>
+    <p *ngFor="let character of (characters$ | async)">{{character.name}}</p>
+  </div>
+
+  <div class="py-3" *ngIf="(films$ | async) !== []">
+    <h1>Films</h1>
+    <p *ngFor="let film of (films$ | async)">{{film.title}}</p>
+  </div>
+
+  <div class="py-3" *ngIf="(planets$ | async) !== []">
+    <h1>Planets</h1>
+    <p *ngFor="let planet of (planets$ | async)">{{planet.name}}</p>
+  </div>
+</div>
