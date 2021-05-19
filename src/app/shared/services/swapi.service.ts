@@ -15,10 +15,9 @@ export class SwapiService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCharacters(): Observable<Character[]> {
-    return this.http.get<SwapiResponse<Character>>(`${environment.SW_API_URL}/people`).pipe(
-      map(response => response.results)
-    );
+  getAllCharacters(page?: number): Observable<SwapiResponse<Character>> {
+    const params = new HttpParams().append('page', (page ?? 1).toString());
+    return this.http.get<SwapiResponse<Character>>(`${environment.SW_API_URL}/people`, {params});
   }
 
   getAllFilms(): Observable<Film[]> {
