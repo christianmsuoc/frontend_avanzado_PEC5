@@ -6,6 +6,7 @@ import {FilmListComponent} from "./components/films/film-list/film-list.componen
 import {PlanetListComponent} from "./components/planets/planet-list/planet-list.component";
 
 const routes: Routes = [
+  {path: '', pathMatch: 'full', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'characters', component: CharacterListComponent},
   {path: 'films', component: FilmListComponent},
