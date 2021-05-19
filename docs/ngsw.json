@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1621455494274,
-  "index": "/PEC5/index.html",
+  "timestamp": 1621455771448,
+  "index": "/frontend_avanzado_PEC5/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -28,7 +28,7 @@
     {
       "name": "swapi",
       "patterns": [
-        "\\/PEC5\\/.*"
+        "\\/frontend_avanzado_PEC5\\/.*"
       ],
       "strategy": "freshness",
       "maxSize": 10,
