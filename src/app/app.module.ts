@@ -13,6 +13,8 @@ import {FilmListComponent} from './components/films/film-list/film-list.componen
 import {FilmComponent} from './components/films/film/film.component';
 import {PlanetListComponent} from './components/planets/planet-list/planet-list.component';
 import {PlanetComponent} from './components/planets/planet/planet.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,13 @@ import {PlanetComponent} from './components/planets/planet/planet.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
