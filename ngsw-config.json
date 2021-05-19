@@ -31,7 +31,7 @@
     {
       "name": "swapi",
       "urls": [
-        "https://swapi.dev/api/**"
+        "/api"
       ],
       "cacheConfig": {
         "maxSize": 10,
