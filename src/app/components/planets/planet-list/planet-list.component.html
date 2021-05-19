@@ -1,3 +1,16 @@
-<div class="container-fluid main py-5 justify-content-center">
-  <p>Planet list</p>
+<div class="card-info-container">
+  <ng-container *ngIf="(planetResponse$ | async) as planetResponse">
+    <div class="card-info">
+      <app-planet *ngFor="let planet of planetResponse.results" [planet]="planet"></app-planet>
+    </div>
+    <h4 class="justify-content-center">
+      <ng-container *ngFor="let page of planetPages(planetResponse.count)">
+        <a
+          (click)="selectPage(page + 1)"
+          [ngClass]="{'selected-page': currentPage.getValue() === page + 1}"
+          class="page-selector"
+        > {{page + 1}}</a>
+      </ng-container>
+    </h4>
+  </ng-container>
 </div>

@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {Film} from "../../../shared/models/film";
 
 @Component({
   selector: 'app-film',
@@ -7,4 +8,5 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
   styleUrls: ['./film.component.css']
 })
 export class FilmComponent {
+  @Input("film") film: Film = {} as Film;
 }

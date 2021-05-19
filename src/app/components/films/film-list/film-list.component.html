@@ -1,3 +1,16 @@
-<div class="container-fluid main py-5 justify-content-center">
-  <p>film list</p>
+<div class="card-info-container">
+  <ng-container *ngIf="(filmsResponse$ | async) as filmResponse">
+    <div class="card-info">
+      <app-film *ngFor="let film of filmResponse.results" [film]="film"></app-film>
+    </div>
+    <h4 class="justify-content-center">
+      <ng-container *ngFor="let page of filmPages(filmResponse.count)">
+        <a
+          (click)="selectPage(page + 1)"
+          [ngClass]="{'selected-page': currentPage.getValue() === page + 1}"
+          class="page-selector"
+        > {{page + 1}}</a>
+      </ng-container>
+    </h4>
+  </ng-container>
 </div>

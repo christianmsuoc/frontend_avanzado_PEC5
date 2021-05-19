@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {debounceTime, map} from "rxjs/operators";
 import {Observable, of} from "rxjs";
@@ -19,12 +19,13 @@ export class HomeComponent implements OnInit {
   films$: Observable<Film[] | undefined> = of(undefined);
   planets$: Observable<Planet[] | undefined> = of(undefined);
 
-  constructor(private swapiService: SwapiService) { }
+  constructor(private swapiService: SwapiService) {
+  }
 
   ngOnInit(): void {
     this.search.valueChanges.pipe(
       debounceTime(300),
-      map( text => {
+      map(text => {
         this.characters$ = this.swapiService.searchCharacter(text);
         this.films$ = this.swapiService.searchFilm(text);
         this.planets$ = this.swapiService.searchPlanet(text);

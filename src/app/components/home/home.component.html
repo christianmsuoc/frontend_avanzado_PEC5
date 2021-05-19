@@ -1,27 +1,32 @@
 <div class="container-fluid main py-5">
   <div class="row py-5">
     <div class="col">
-      <label for="search-anything" class="form-label">Search anything</label>
-      <input type="text" [formControl]="search" class="form-control" id="search-anything"
-             placeholder="Luke Skywalker...">
+      <label class="form-label" for="search-anything">Search anything</label>
+      <input [formControl]="search" class="form-control" id="search-anything" placeholder="Luke Skywalker..."
+             type="text">
     </div>
   </div>
 
 
-  <div class="py-3 justify-content-center text-center" *ngIf="(characters$ | async) as characters">
+  <div *ngIf="(characters$ | async) as characters" class="py-3 justify-content-center text-center">
     <h1 class="py-4">Characters</h1>
     <div class="card-container">
       <app-character *ngFor="let character of characters" [character]="character"></app-character>
     </div>
   </div>
 
-  <div class="py-3" *ngIf="(films$ | async) as films">
-    <h1>Films</h1>
-    <p *ngFor="let film of films">{{film.title}}</p>
+  <div *ngIf="(films$ | async) as films" class="py-3 justify-content-center text-center">
+    <h1 class="py-4">Films</h1>
+    <div class="card-container">
+      <app-film *ngFor="let film of films" [film]="film"></app-film>
+    </div>
   </div>
 
-  <div class="py-3" *ngIf="(planets$ | async) as planets">
-    <h1>Planets</h1>
-    <p *ngFor="let planet of planets">{{planet.name}}</p>
+  <div *ngIf="(planets$ | async) as planets" class="py-3 justify-content-center text-center">
+    <h1 class="py-4">Planets</h1>
+    <div class="card-container">
+      <app-planet *ngFor="let planet of planets" [planet]="planet"></app-planet>
+    </div>
   </div>
+
 </div>

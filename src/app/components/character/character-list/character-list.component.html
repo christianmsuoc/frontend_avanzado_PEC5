@@ -1,14 +1,14 @@
-<div class="characters-container">
+<div class="card-info-container">
   <ng-container *ngIf="(characterResponse$ | async) as characterResponse">
-    <div class="character-cards">
+    <div class="card-info">
       <app-character *ngFor="let character of characterResponse.results" [character]="character"></app-character>
     </div>
     <h4 class="justify-content-center">
       <ng-container *ngFor="let page of characterPages(characterResponse.count)">
         <a
+          (click)="selectPage(page + 1)"
           [ngClass]="{'selected-page': currentPage.getValue() === page + 1}"
           class="page-selector"
-          (click)="selectPage(page + 1)"
         > {{page + 1}}</a>
       </ng-container>
     </h4>

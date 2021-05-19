@@ -6,3 +6,34 @@
   width: 100%;
   min-height: 90vh;
 }
+
+.card-info-container {
+  background-color: #111111;
+  display: grid;
+  color: azure;
+  width: 100%;
+  min-height: 90vh;
+  padding-top: 2rem;
+  justify-items: center;
+}
+
+.card-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+  grid-auto-rows: 400px;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+}
+
+.page-selector {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.selected-page {
+  margin: 0 10px;
+  cursor: pointer;
+  color: gray;
+}
+

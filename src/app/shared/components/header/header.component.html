@@ -2,20 +2,21 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">HOME</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+              data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['characters']" routerLinkActive="active" aria-current="page">Personajes</a>
+            <a [routerLink]="['characters']" aria-current="page" class="nav-link"
+               routerLinkActive="active">Characters</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['films']" routerLinkActive="active">Películas</a>
+            <a [routerLink]="['films']" class="nav-link" routerLinkActive="active">Films</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['planets']" routerLinkActive="active">Planetas</a>
+            <a [routerLink]="['planets']" class="nav-link" routerLinkActive="active">Planets</a>
           </li>
         </ul>
       </div>

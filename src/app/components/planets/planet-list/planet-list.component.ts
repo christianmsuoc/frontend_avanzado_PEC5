@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BehaviorSubject} from "rxjs";
+import {SwapiService} from "../../../shared/services/swapi.service";
 
 @Component({
   selector: 'app-planet-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetListComponent implements OnInit {
 
-  constructor() { }
+  planetResponse$ = this.swapiService.getAllPlanets();
+  currentPage = new BehaviorSubject(1);
 
-  ngOnInit(): void {
+  constructor(private swapiService: SwapiService) {
   }
 
+  ngOnInit(): void {
+    this.currentPage.subscribe(value => {
+      this.planetResponse$ = this.swapiService.getAllPlanets(value);
+    })
+  }
+
+
+  planetPages(count: number): number[] {
+    return [...Array(Math.ceil(count / 10)).keys()]
+  }
+
+  selectPage(page: number): void {
+    this.currentPage.next(page);
+  }
 }

@@ -1,1 +1,21 @@
-<p>film</p>
+<div class="card film-card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">
+      <span>Title: </span>
+      <span>{{film.title}}</span>
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted pb-3">
+      <span>Director: </span>
+      <span>{{film.director}}</span>
+    </h6>
+    <hr>
+    <p class="card-text">
+      <span class="row-title">Episode number: </span>
+      <span>{{film.episode_id}}</span>
+    </p>
+    <p class="card-text">
+      <span class="row-title">Opening: </span>
+      <span>{{film.opening_crawl | slice:0:120}}</span>
+    </p>
+  </div>
+</div>

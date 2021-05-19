@@ -1,0 +1,11 @@
+.film-card {
+  background-color: #212529;
+  height: 350px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.row-title {
+  font-weight: bolder;
+}

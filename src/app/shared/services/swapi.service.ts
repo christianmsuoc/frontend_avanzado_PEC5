@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
@@ -13,23 +13,22 @@ import {SwapiResponse} from "../models/swapi-response";
 })
 export class SwapiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getAllCharacters(page?: number): Observable<SwapiResponse<Character>> {
     const params = new HttpParams().append('page', (page ?? 1).toString());
     return this.http.get<SwapiResponse<Character>>(`${environment.SW_API_URL}/people`, {params});
   }
 
-  getAllFilms(): Observable<Film[]> {
-    return  this.http.get<SwapiResponse<Film>>(`${environment.SW_API_URL}/films`).pipe(
-      map(response => response.results)
-    );
+  getAllFilms(page?: number): Observable<SwapiResponse<Film>> {
+    const params = new HttpParams().append('page', (page ?? 1).toString());
+    return this.http.get<SwapiResponse<Film>>(`${environment.SW_API_URL}/films`, {params});
   }
 
-  getAllPlanets(): Observable<Planet[]> {
-    return  this.http.get<SwapiResponse<Planet>>(`${environment.SW_API_URL}/planets`).pipe(
-      map(response => response.results)
-    );
+  getAllPlanets(page?: number): Observable<SwapiResponse<Planet>> {
+    const params = new HttpParams().append('page', (page ?? 1).toString());
+    return this.http.get<SwapiResponse<Planet>>(`${environment.SW_API_URL}/planets`, {params});
   }
 
   searchCharacter(name: string): Observable<Character[] | undefined> {
