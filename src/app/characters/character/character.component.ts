@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {Character} from "../../../shared/models/character";
+import {Character} from "../../shared/models/character";
 
 @Component({
   selector: 'app-character',

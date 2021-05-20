@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {SwapiService} from "../../../shared/services/swapi.service";
 import {BehaviorSubject} from "rxjs";
+import {SwapiService} from "../../shared/services/swapi.service";
 
 @Component({
-  selector: 'app-film-list',
-  templateUrl: './film-list.component.html',
-  styleUrls: ['./film-list.component.css']
+  selector: 'app-planet-list',
+  templateUrl: './planet-list.component.html',
+  styleUrls: ['./planet-list.component.css']
 })
-export class FilmListComponent implements OnInit {
+export class PlanetListComponent implements OnInit {
 
-  filmsResponse$ = this.swapiService.getAllFilms();
+  planetResponse$ = this.swapiService.getAllPlanets();
   currentPage = new BehaviorSubject(1);
 
   constructor(private swapiService: SwapiService) {
@@ -17,17 +17,16 @@ export class FilmListComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentPage.subscribe(value => {
-      this.filmsResponse$ = this.swapiService.getAllFilms(value);
+      this.planetResponse$ = this.swapiService.getAllPlanets(value);
     })
   }
 
 
-  filmPages(count: number): number[] {
+  planetPages(count: number): number[] {
     return [...Array(Math.ceil(count / 10)).keys()]
   }
 
   selectPage(page: number): void {
     this.currentPage.next(page);
   }
-
 }

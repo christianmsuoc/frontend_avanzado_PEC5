@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SwapiService} from "../../../shared/services/swapi.service";
+import {SwapiService} from "../../shared/services/swapi.service";
 import {BehaviorSubject} from "rxjs";
 
 @Component({

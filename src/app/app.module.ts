@@ -7,29 +7,20 @@ import {HeaderComponent} from './shared/components/header/header.component';
 import {HomeComponent} from './components/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
-import {CharacterListComponent} from './components/character/character-list/character-list.component';
-import {CharacterComponent} from './components/character/character/character.component';
-import {FilmListComponent} from './components/films/film-list/film-list.component';
-import {FilmComponent} from './components/films/film/film.component';
-import {PlanetListComponent} from './components/planets/planet-list/planet-list.component';
-import {PlanetComponent} from './components/planets/planet/planet.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
+import {CharactersModule} from "./characters/characters.module";
+import {FilmsModule} from "./films/films.module";
+import {PlanetsModule} from "./planets/planets.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
-    CharacterListComponent,
-    CharacterComponent,
-    FilmListComponent,
-    FilmComponent,
-    PlanetListComponent,
-    PlanetComponent
+    HomeComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -38,7 +29,10 @@ import { environment } from '../environments/environment';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    CharactersModule,
+    FilmsModule,
+    PlanetsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

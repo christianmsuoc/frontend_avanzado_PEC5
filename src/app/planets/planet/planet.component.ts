@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {Planet} from "../../../shared/models/planet";
+import {Planet} from "../../shared/models/planet";
 
 @Component({
   selector: 'app-planet',
