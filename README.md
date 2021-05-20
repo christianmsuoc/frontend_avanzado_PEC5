@@ -1,6 +1,7 @@
 # PEC5
 
 Este readme sirve para explicar lo que se requiere en los ejercicios.
+Aplicación desplegada en https://christianmsuoc.github.io/frontend_avanzado_PEC5/
 
 ### Ejercicio 1
 
